@@ -5,7 +5,7 @@ theme: jekyll-theme-chirpy
 
 # Change the following value to '/PROJECT_NAME' ONLY IF your site type is GitHub Pages Project sites
 # and doesn't have a custom domain.
-baseurl: "/olavlinddam.github.io"
+baseurl: ""
 
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
@@ -20,31 +20,32 @@ timezone: Europe/Copenhagen
 
 title: Olav Lind-Dam # the main title
 
-tagline: Datamatikerstuderende med fokus på backend udvikling. # it will display as the sub-title
+tagline: Datamatikersturende med passion for back-end udvikling. # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  Datamatikerstuderende med fokus på backend udvikling.
+  A minimal, responsive and feature-rich Jekyll theme for technical writing.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: "olavlinddam.github.io"
+url: 'https://olavlinddam.github.io'
 
 github:
   username: olavlinddam # change to your github username
 
 twitter:
-  username: not available # change to your twitter username
+  username: -- # change to your twitter username
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Olav Lind-Dam
-  email: o.linddam@gmail.com # change to your email address
+  email: onda39980@edu.ucl.dk # change to your email address
   links:
     # The first element serves as the copyright owner's link
+    # - https://twitter.com/username # change to your twitter homepage
     - https://github.com/olavlinddam # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://www.linkedin.com/in/olav-lind-dam
 
 google_site_verification: # fill in to your verification string
 
