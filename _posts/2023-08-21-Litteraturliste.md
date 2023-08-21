@@ -1,6 +1,6 @@
 ---
 title: Litteraturliste
-date: 18.08.2023 18:33
+date: 21.08.2023 15:35
 categories: [LeakMonitor, Litteraturliste]
 tags: [nolek,litteraturliste,formalia]
 ---
@@ -28,4 +28,4 @@ Her følger en litteraturliste over de ressourcer jeg anvender i projektet.
 
 ### Authentication
 * [Picking the right Auth](https://www.youtube.com/watch?v=4BItolSqIyU)
-* 
+
