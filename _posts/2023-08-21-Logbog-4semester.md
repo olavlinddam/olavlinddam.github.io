@@ -1,5 +1,5 @@
 ---
-title: Logbog
+title: Logbog 4. Semester
 date: 21.08.2023 15:35
 categories: [LeakMonitor, Logbog]
 tags: [nolek,logbog,formalia]
