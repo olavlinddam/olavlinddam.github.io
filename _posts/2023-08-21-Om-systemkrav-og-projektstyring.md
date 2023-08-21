@@ -1,7 +1,7 @@
 ---
 title: Om systemkrav og projektstyring
 date: 18.08.2023 18:33
-categories: [LeakMonitor, Projektstying]
+categories: [LeakMonitor, Systemdokumentation]
 tags: [nolek,systemkrav,projektstyring,kanban]
 ---
 I dette post vil jeg gennemgå de systemkrav, jeg har identificeret på baggrund af det oplæg, vi fik af Nolek i starten af

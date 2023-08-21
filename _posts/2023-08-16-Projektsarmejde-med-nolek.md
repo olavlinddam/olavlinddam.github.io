@@ -1,7 +1,7 @@
 ---
 title: Projektsamarbejdet med Nolek
 date: 16.08.2023 12:23
-categories: [LeakMonitor, Projektbeskrivelser]
+categories: [LeakMonitor, Systemdokumentation]
 tags: [nolek,microservices,containerization,softwareudvikling,brugergrænseflade,rabbitmq,api-gateway]
 ---
 
@@ -31,7 +31,4 @@ database. De vil kommunikere via en message broker som RabbitMQ. Kommunikationen
 øvrige gruppemedlemmers systemer vil ske gennem et API gateway for at sikre en ensartet kommunikationsflade. 
 Jeg vil deployere hver service i sin egen container, hvilket muliggør skalering baseret på trafik. Der er mange flere 
 fordele ved containerization og microservice-arkitekturen, men det vil jeg dykke dybere ned i i fremtidige indlæg.
-
-Tak fordi du tog dig tid til at læse dette indlæg. Jeg ser frem til at dele mere om projektets udvikling og mine 
-tekniske overvejelser i de kommende uger.
 
