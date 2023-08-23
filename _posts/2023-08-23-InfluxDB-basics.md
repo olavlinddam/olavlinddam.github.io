@@ -49,16 +49,15 @@ Her er der altså to punkter der matcher vores series key.
 
 Serier er altså den måde InfluxDB opbevarer og strukturere data.
 
-### At query InfluxDB
+## At query InfluxDB
 Når man vil query en InfulxDB kan man anvende data-sproget Flux. Det kan nedbrydes i følgende:
 
-
-1. Definer bucket:
-``` js
-from(bucket:LeakMonitor)
-```
-2. Specificer tidsserien
 ```js
+// 1. Definer bucket:
+from(bucket:LeakMonitor)
+
+// 2. Specificer tidsserien
+
 // relativ tidsserie uden stop.
 from(bucket:LeakMonitor)
 |> range(start:-1h)
@@ -68,6 +67,7 @@ from(bucket:LeakMonitor)
 from(bucket:LeakMonitor)
 |> range(start:-1h, stop -10m)
 ```
+
 Man kan ligeledes query for absolutte tidsrum ved at skrive det absolutte tidspunkt frem for et relativt.
 
 Når man har sin bucket og sit tidsrum kan man filtrere og gruppere det data, så man kun får det ønskede. Det netop hentede data kan bruges som input i `filter()` metoden, som kun har parameteren `fn`. `fn` forventer en [[predicate function]] og evaluere hver rækkes kolonneværdier. Hver række bliver så et input i `filter()` metoden som `r`  hvor det evalueres med predicate expressions. Rækker som evalueres til `false` droppes fra det data som bliver til vores output og rækker som evalueres til `true` beholdes.
@@ -97,7 +97,8 @@ from(bucket:"example-bucket")
 
 Influx kalder automatisk funktionen `yield()` som outputter resultatet af forespørgelsen. Hvis man laver flere forespørgelser i samme Flux query skal man kalde `yield()`explicit til sidst i ens query.
 at ud fra seriekardinalitet er det ovenstående skema godt.
-### Data layout og databaseskemadesign best practices
+
+## Data layout og databaseskemadesign best practices
 Når det kommer til at optimere ressourceforbruget af ens InfluxDB, og til at forbedre ingestion rate - hvor hurtigt data kan gemmes i databasen - er det nødvendigt at overveje ens databaseskema. Influxdata anbefaler følgende retningslinjer:
 
 1. Metadata bør kodes som tags, især metadata som man ofte vil query, da tags er indekseret.
