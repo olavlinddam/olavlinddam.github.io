@@ -7,7 +7,7 @@ tags: [nolek,læringsmål,formalia]
 
 Mine overordnede læringsmål er som følger:
 
-### Microservices
+## Microservices
 ##### Viden
 1. Jeg har en forståelse for hvornår og hvorfor man kan drage fordel af en microservices arkitektur. I forlængelse 
 deraf, en forståelse for hvornår man ikke bør implementere en microservices arkitektur.
@@ -25,7 +25,7 @@ et alternativ.
 2. Jeg kan designe og implementere et system af microservices der kommunikere effektivt, på trods af fejl eller 
 netværksrelaterede problemer.
 
-### Containerization
+## Containerization
 ##### Viden
 1. Jeg kan forklare hvornår og hvorfor man kan fordel af containerization. 
 3. Jeg kender og de vigtigste Docker og Kubetnetes kommandoer.
