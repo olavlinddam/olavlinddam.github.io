@@ -22,9 +22,9 @@ InfluxDB arbejder med nogle data elementer som er beskrevet nedenfor.
 
 ## Series and Series Keys
 En series key er en samling af punkter som deler følgende egenskaber:
-* \_measurement
+* _measurement
 * tag set
-* \_field
+* _field
 
 ```js
 // series key template:
@@ -120,6 +120,7 @@ I projektet med Nolek ved vi, at vi altid kun vil have 2 statusser, men antallet
 * **Status:** 2 værdier
 * **Testobject:** 100 værdier
 
+<p style="text-align: center; font-style: italic;">1 (bucket) * 1 (measurement) * 2 (status-værdier) * 100 (test-objekt-værdier) * 3 (field-keys)</p>
 
 I forhold til InfluxDB's kapacitet er 600 ikke en høj kardinalitet. Der er dog nogle ting som kan påvirke kardinaliteten. Hvad skal der hvis vi tilføjer 200 testobjekter mere? Så ender kardinaliteten på 1800. Tilføjer vi 10.000 testobjekter ender vi på 60.000. Selvom det er 100 gange flere end den oprindelige antagelse, er vi stadig et godt stykke inden for rammen af hvad InfluxDB kan håndtere. Jeg skal ikke kunne sige hvor mange forskellige testobjekter en virksomhed kan komme op på, men jeg tillader mig den antagelse, at 10.000 er et højt tal. Ovenstående databaseskema kan altså anvendes uden bekymring for høj seriekardinalitet.
 
