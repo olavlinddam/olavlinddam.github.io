@@ -26,10 +26,11 @@ sniffing points.
 
 #### Bucket eksempel
 | _time | _measurement | test_object | status | user  | sniffing_point | reason      |
-|:------|:-------------|:------------|:-------|:------|:---------------|:------------|
+|-------|--------------|-------------|--------|-------|----------------|-------------|
 | tid   | LeakTest     | object1     | OK     | user1 | point1         |             |
 | tid   | LeakTest     | object2     | NOK    | user2 | point2         |             |
-| tid   | LeakTest     | object2     | OK     | user2 | point2         | reason here |  
+| tid   | LeakTest     | object2     | OK     | user2 | point2         | reason here |
+
 
 #### Bucket skema
 | name           | type      | data_type |
@@ -40,5 +41,3 @@ sniffing points.
 | user           | field     | string    |
 | sniffing_point | field     | string    |
 | reason         | field     | string    |
-
-
