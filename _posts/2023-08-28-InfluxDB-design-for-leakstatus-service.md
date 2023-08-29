@@ -25,14 +25,15 @@ sniffing points.
 * **reason:** Vi vil nok sjældent forespørge på reason.
 
 #### Bucket eksempel
+
 | _time | _measurement | test_object | status | user  | sniffing_point | reason      |
 |-------|--------------|-------------|--------|-------|----------------|-------------|
 | tid   | LeakTest     | object1     | OK     | user1 | point1         |             |
 | tid   | LeakTest     | object2     | NOK    | user2 | point2         |             |
 | tid   | LeakTest     | object2     | OK     | user2 | point2         | reason here |
 
-
 #### Bucket skema
+
 | name           | type      | data_type |
 |----------------|-----------|-----------|
 | time           | timestamp |           |
