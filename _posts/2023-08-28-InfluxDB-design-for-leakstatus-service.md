@@ -42,3 +42,13 @@ sniffing points.
 | user           | field     | string    |
 | sniffing_point | field     | string    |
 | reason         | field     | string    |
+
+
+| name        | type      | data_type |
+|-------------|-----------|-----------|
+| time        | timestamp |           |
+| test_object | tag       | string    |
+| status      | tag       | string    |
+| user        | field     | string    |
+|sniffing_point|field|string|
+|reason|field|string|
