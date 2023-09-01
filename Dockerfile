@@ -38,7 +38,8 @@ RUN apt-get -y install git \
     libgdbm6 \
     libgdbm-dev \
     libdb-dev \
-    apt-utils
+    apt-utils \
+    nano
     
 # "#################################################"
 # "GitHub Pages/Jekyll is based on Ruby. Set the version and path"
