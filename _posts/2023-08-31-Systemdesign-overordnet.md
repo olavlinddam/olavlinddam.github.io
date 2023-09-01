@@ -5,8 +5,6 @@ categories: [LeakMonitor, Systemdokumentation]
 tags: [nolek,systemdesign,softwareudvikling,microservices,systemarkitektur]
 ---
 
-test af dev container
-
 Vores design ser ud som følger.
 
 ## Domænemodel
