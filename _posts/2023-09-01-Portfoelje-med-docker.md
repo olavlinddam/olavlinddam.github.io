@@ -2,7 +2,7 @@
 title: Portfølje i en Docker container
 date: 01.09.2023 10:55
 categories: [Generelt, Portfølje]
-tags: [docker,portfølje,containerization,dockerfile,jekyll,github-pages]
+tags: [docker,portfølje,containerization,dockerfile,jekyll,"github pages"]
 ---
 
 Efter lang tids problemer med hosting af min portfølje på GitHub har jeg valgt at containerize min portfølje med Docker. Det betyder, at hele det setup, der er nødvendigt for at køre et Jekyll-site på GitHub Pages, nu ligger i en Dockerfile. Jeg vil kort gennemgå processen.  
