@@ -1,7 +1,7 @@
 ---
 title: Portfølje i en Docker container
 date: 01.09.2023 10:55
-categories: [Generelt, Portfølje]
+categories: [Generelt, Docker]
 tags: [docker,portfølje,containerization,dockerfile,jekyll,"github pages"]
 ---
 
