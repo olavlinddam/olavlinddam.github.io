@@ -1,7 +1,7 @@
 ---
 title: InfluxDB design for LeakStatus Service
 date: 28.08.2023 10.11
-categories: [Nolek, Systemdokumentation]
+categories: [Nolek, Microservices]
 tags: [nolek,influxdb,databaser,systemdesign,databasedesign,leakstatusservice]
 ---
 
