@@ -1,7 +1,7 @@
 ---
 title: Overordnet systemdesign
 date: 31.08.2023 10:37
-categories: [LeakMonitor, Systemdokumentation]
+categories: [Nolek, Systemdokumentation]
 tags: [nolek,systemdesign,softwareudvikling,microservices,systemarkitektur]
 ---
 
@@ -13,6 +13,7 @@ Vores design ser ud som følger.
 	* Layout 
 	* Navn
 	* Beskrivelse
+  * Objekttype
 	  
 * **Sniffing Point** 
 	* Navn
@@ -24,6 +25,7 @@ Vores design ser ud som følger.
 * **Testresultat**
 	* Status
 	* Tidspunkt
+  * Maskinenummer
 	  
 * **Bruger**
 	* Brugernavn
