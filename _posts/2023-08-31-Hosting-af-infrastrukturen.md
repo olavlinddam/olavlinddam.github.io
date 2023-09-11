@@ -1,7 +1,7 @@
 ---
 title: Hosting af LeakMonitor infrastruktur
 date: 31.08.2023 12:54
-categories: [LeakMonitor, Produkt]
+categories: [Nolek, Microservices]
 tags: [nolek,systemarkitektur,hosting,devops,infrastruktur]
 ---
 Jeg har gjort mig flere forskellige tanker omkring hosting af infrastrukturen. Der er nogle forskellige muligheder, herunder Azure, AWS, UCL, Webdock.io og selvfølgelig lokal hosting af en eller anden art. Der er fordele og ulemper ved dem alle, så valget er ikke helt nemt.
