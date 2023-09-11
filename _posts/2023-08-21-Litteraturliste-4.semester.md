@@ -1,7 +1,7 @@
 ---
 title: Litteraturliste 4. semester
 date: 21.08.2023 15:35
-categories: [LeakMonitor, Litteraturliste]
+categories: [Nolek, Litteraturliste]
 tags: [nolek,litteraturliste,formalia]
 ---
 Her følger en litteraturliste over de ressourcer jeg anvender i projektet.
