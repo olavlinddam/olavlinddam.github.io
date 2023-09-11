@@ -1,7 +1,7 @@
 ---
 title: InfluxDB basics
 date: 23.08.2023 19:48
-categories: [Generelt, Faglig indsigt]
+categories: [Generelt, InfluxDB]
 tags: [nolek,influxdb,databaser,systemdesign,databasedesign]
 ---
 InfluxDB er en databasetype, der bruges til at gemme tidsserie data. Det største fokus for InfluxData, som er udviklerne af InfluxDb, er, at sikre enormt god performance i forhold til hastighed. Data lagres efter stigende tidsorden og der er strenge restriktioner i forhold til at opdatere og slette data. Generelt set slettes eller opdateres data ikke, men i stedet gemmes der blot et nyt "point" (se nedenfor). En måling har ikke et Id som man traditionel forstand med differentieres i stedet på tidsstempler.
