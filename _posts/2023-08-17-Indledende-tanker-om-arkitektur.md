@@ -1,7 +1,7 @@
 ---
 title: Indledende tanker om arkitektur
 date: 17.08.2023 06:14
-categories: [LeakMonitor, Systemdokumentation]
+categories: [Nolek, Systemdokumentation]
 tags: [nolek,microservices,softwareudvikling,systemdesign,systemarkitektur,authenticationservice,leakstatusservice,loggingservice]
 ---
 
