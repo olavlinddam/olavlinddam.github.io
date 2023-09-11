@@ -26,21 +26,23 @@ sniffing points.
 
 #### Bucket eksempel
 
-| _time | _measurement | test_object | status | user  | sniffing_point | reason      |
-|-------|--------------|-------------|--------|-------|----------------|-------------|
-| tid   | LeakTest     | object1     | OK     | user1 | point1         |             |
-| tid   | LeakTest     | object2     | NOK    | user2 | point2         |             |
-| tid   | LeakTest     | object2     | OK     | user2 | point2         | reason here |
+| _time | _measurement | test_object | test_object_type | status | user  | sniffing_point | machineId | reason      |
+|-------|--------------|-------------|------------------|--------|-------|----------------|-----------|-------------|
+| tid   | LeakTest     | object1     | type1            | OK     | user1 | point1         | machine1  |             |
+| tid   | LeakTest     | object2     | type2            | NOK    | user2 | point2         | machine2  | reason here |
+| tid   | LeakTest     | object2     | type2            | OK     | user2 | point2         | machine2  | reason here |
 
 #### Bucket skema
 
-| name           | type      | data_type |
-|----------------|-----------|-----------|
-| time           | timestamp |           |
-| test_object    | tag       | string    |
-| status         | tag       | string    |
-| user           | field     | string    |
-| sniffing_point | field     | string    |
-| reason         | field     | string    |
+| name            | type      | data_type |
+|-----------------|-----------|-----------|
+| time            | timestamp |           |
+| test_object     | tag       | string    |
+| test_oject_type | tag       | string    |
+| status          | tag       | string    |
+| machineId       | tag       | string    |~~~~
+| user            | field     | string    |
+| sniffing_point  | field     | string    |
+| reason          | field     | string    |
 
 
