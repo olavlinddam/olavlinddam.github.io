@@ -1,7 +1,7 @@
 ---
 title: Læringsmål
 date: 22.08.2023 18:11
-categories: [LeakMonitor, Læringsplan- og mål]
+categories: [Nolek, Læringsplan- og mål]
 tags: [nolek,læringsmål,formalia]
 ---
 
