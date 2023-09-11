@@ -1,7 +1,7 @@
 ---
 title: Projektsamarbejdet med Nolek
 date: 16.08.2023 12:23
-categories: [LeakMonitor, Systemdokumentation]
+categories: [Nolek, Systemdokumentation]
 tags: [nolek,microservices,containerization,softwareudvikling,brugergrænseflade,rabbitmq,api-gateway]
 ---
 
