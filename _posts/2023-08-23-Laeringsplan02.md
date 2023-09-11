@@ -1,7 +1,7 @@
 ---
 title: Læringsplan 28.08.23 - 15.09.23
 date: 29.08.2023 09:50
-categories: [LeakMonitor, Læringsplan- og mål]
+categories: [Nolek, Læringsplan- og mål]
 tags: [nolek,læringsplan,projektstyring,delmål]
 ---
 
