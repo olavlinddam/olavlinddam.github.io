@@ -2,7 +2,7 @@
 title: Design af LeakTest Service
 date: 12.09.2023 06:38
 categories: [Nolek, Microservices]
-tags: [nolek,leaktest,microservices,design,systemdokumentation]
+tags: [nolek,logbog,formalia]
 ---
 
 Nedenfor ses et overblik over mit design af LeakTest Service.
