@@ -7,4 +7,4 @@ tags: [nolek,logbog,formalia]
 
 Nedenfor ses et overblik over mit design af LeakTest Service.
 
-  <img src="/assets/images/kanban-120923.png" alt="Image should have been here.">
+<img src="/assets/images/kanban-120923.png" alt="Image should have been here.">
