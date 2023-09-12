@@ -1,5 +1,5 @@
 ---
-title: Læringsplan 28.08.23 - 15.09.23
+title: Læringsplan 28.08.23 - 11.09.23
 date: 29.08.2023 09:50
 categories: [Nolek, Læringsplan- og mål]
 tags: [nolek,læringsplan,projektstyring,delmål]
