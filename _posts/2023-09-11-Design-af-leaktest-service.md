@@ -7,4 +7,4 @@ tags: [nolek,leaktest,microservices,systemdokumentation,systemdesign]
 
 Nedenfor ses et overblik over mit design af LeakTest Service.
 
-<img src="/assets/images/kanban-120923.png" alt="Image should have been here.">
+<img src="/assets/images/leak_test_service.png" alt="Image should have been here.">
