@@ -101,7 +101,7 @@ så vi er sikre på at de rent faktisk er valide GUIDs.
 ### LeakTestController
 I controlleren findes de endpoints som resten af systemet kan forbinde til.
 
-<img src="/assets/images/LeakTestController-140923.png">
+<img src="/assets/images/LeakTestController-180923.png">
 
 
 De er alle opbygget med try-catch statements, hvor modellen valideres, enten når den kommer ind i controlleren via kaldet 
@@ -110,31 +110,38 @@ de nødvendige krav, både ift. overhovedet at kunne skrive det til databasen og
 Der er naturligvis også de sikkerhedsmæssige overvejelser ifm. validering. Her er der et eksempel på en af metoderne:
 
 ```c#
- [HttpPost("AddSinglePointAsync")]
-  public async Task<IActionResult> AddSinglePointAsync([FromBody] LeakTest leakTest)
-  {
-      try
-      {
-          // Creating the validator and validating the LeakTest object.
-          var validator = new LeakTestValidator();
-          var validationResult = await validator.ValidateAsync(leakTest);
-          
-          if (!validationResult.IsValid)
-          {
-              return BadRequest($"LeakTest object could not be validated: {string.Join(", ", validationResult.Errors.Select(e => e.ErrorMessage))}");
-          }
-          
-          // Posting the LeakTest object as a point in the database. 
-          await _leakTestRepository.AddSinglePointAsync(leakTest);
-          
-          return Ok($"{JsonConvert.SerializeObject(leakTest, Formatting.Indented)}");
-      }
-      catch (Exception e)
-      {
-          // Log the exception here
-          return BadRequest($"The request could not be processed due to: {e.Message}");
-      }
-  }
+[HttpPost]
+public async Task<IActionResult> AddSingleAsync([FromBody] LeakTest leakTest)
+{
+    try
+    {
+        leakTest.User = leakTest.User.ToUpper();
+        leakTest.Status = leakTest.Status.ToUpper();
+        
+        // Creating the validator and validating the LeakTest object.
+        var validator = new LeakTestValidator();
+        var validationResult = await validator.ValidateAsync(leakTest);
+        
+        // setting the id of the leaktest. 
+        leakTest.LeakTestId = Guid.NewGuid();
+        
+        if (!validationResult.IsValid)
+        {
+            return BadRequest($"LeakTest object could not be validated: {string.Join(", ", validationResult.Errors.Select(e => e.ErrorMessage))}");
+        }
+        
+        // Posting the LeakTest object as a point in the database. 
+        await _leakTestRepository.AddSingleAsync(leakTest);
+        
+        // Returner en 201 Created statuskode og en Location header
+        return CreatedAtAction(nameof(GetById), new { id = leakTest.LeakTestId }, null);
+    }
+    catch (Exception e)
+    {
+        // Log the exception here
+        return BadRequest($"The request could not be processed due to: {e.Message}");
+    }
+}
 ```
 
 Logging er endnu ikke implementeret i metoderne. Det kommer når jeg har opbygget LoggingService.
@@ -144,27 +151,22 @@ Jeg har kun et enkelt repository i denne service, men nu er mønsteret på plads
 koden med flere hvis det bliver nødvendigt. 
 
 ```c#
-  public async Task AddSinglePointAsync(LeakTest leakTest)
-  {
-      try
-      {
-          // Initializing the _client and inputting a new instance of LeakTestConverter as mapping parameter.
-          var converter = new LeakTestConverter();
-          
-          // Using the client to write the leakTest object as a measurement.
-          await _client.GetWriteApiAsync(converter)
-              .WriteMeasurementAsync(leakTest);
-      }
-      
-      catch (InfluxException influxException)
-      {
-          throw new InfluxException("Could not save data", influxException);
-      }
-      catch (Exception ex)
-      {
-          throw new LeakTestRepositoryException("An unexpected error occured", ex);
-      }
-  }
+public async Task AddSingleAsync(LeakTest leakTest)
+{
+    try
+    {
+        await _client.GetWriteApiAsync().WriteMeasurementAsync(leakTest);
+    }
+    
+    catch (InfluxException influxException)
+    {
+        throw new InfluxException("Could not save data", influxException);
+    }
+    catch (Exception ex)
+    {
+        throw new LeakTestRepositoryException("An unexpected error occured", ex);
+    }
+}
 ```
 
 Ovenstående er den videre implementering af "AddSinglePointAsync" endpointet fra controlleren. Når man skriver til en
@@ -172,83 +174,171 @@ InfluxDb server kan man bruge "WriteMeasuermentApi" endpoint som InfluxDb ekspon
 data kan man enten gøre det med et Flux query eller ved brug af LINQ som herunder:
 
 ```c#
-  public async Task<IEnumerable<LeakTest>> GetAllPointsAsync()
-  {
-      try
-      {
-          // Creating a Task so we can run the method async.
-          return await Task.Run(() =>
-          {
-              // Init the LeakTestConverter, which implements IDomainObjectMapper, and using it as input for GetQueryApi
-              var converter = new LeakTestConverter();
-          
-              // using var client = _client;
-              var queryApi = _client.GetQueryApiSync(converter);
-      
-              // Creating an instance of QueryableOptimizerSettings to enable Measurement Column
-              var optimizerSettings = new QueryableOptimizerSettings()
-              {
-                  DropMeasurementColumn = false
-              };
-      
-              // Creating the query to pull all points from the specified bucket and mapping each to a LeakTest objects
-              var query = from t in InfluxDBQueryable<LeakTest>
-                      .Queryable(_config.Bucket, _config.Org, queryApi, converter, optimizerSettings)
-                  select t;
-          
-              var leakTests = query.ToList();
+public async Task<IEnumerable<LeakTest>> GetAllAsync()
+{
+    try
+    {
+        // Creating a Task so we can run the method async.
+        return await Task.Run(() =>
+        {
+            // Init the LeakTestConverter, which implements IDomainObjectMapper, and using it as input for GetQueryApi
+            var converter = new LeakTestConverter();
+        
+            // using var client = _client;
+            var queryApi = _client.GetQueryApiSync(converter);
+    
+            // Creating an instance of QueryableOptimizerSettings to enable Measurement Column
+            var optimizerSettings = new QueryableOptimizerSettings()
+            {
+                DropMeasurementColumn = false
+            };
+    
+            // Creating the query to pull all points from the specified bucket and mapping each to a LeakTest objects
+            var query = from t in InfluxDBQueryable<LeakTest>
+                    .Queryable(_config.Bucket, _config.Org, queryApi, converter, optimizerSettings)
+                select t;
+        
+            var leakTests = query.ToList();
 
-              return leakTests;
-          });
-      }
-      catch (Exception e)
-      {
-          throw new BadHttpRequestException($"The request could not be processed. {e.Message}");
-      }
-  }
+            return leakTests;
+        });
+    }
+    catch (Exception e)
+    {
+        throw new BadHttpRequestException($"The request could not be processed. {e.Message}");
+    }
+    }
 ```
 
 Det gør det ret intuitivt at arbejde med InfluxDb hvis man er vant til LINQ i forvejen. Det kræver dog at man opretter 
 en converter klasse som håndterer mapping fra FluxRecord til entitet og omvendt.
 
 ```c#
-  // Convert from FluxRecord to LeakTestEntity
-  public object ConvertToEntity(FluxRecord fluxRecord, Type type)
-  {
-      if (fluxRecord == null)
-      {
-          throw new ArgumentNullException(nameof(fluxRecord));
-      }
+using System.Reflection;
+using InfluxDB.Client;
+using InfluxDB.Client.Api.Domain;
+using InfluxDB.Client.Core.Flux.Domain;
+using InfluxDB.Client.Linq;
+using InfluxDB.Client.Writes;
+using LeakTestService.Models;
 
-      if (type != typeof(LeakTest))
-      {
-          throw new NotSupportedException($"This converter doesn't support: {type}");
-      }
+namespace LeakTestService.Converters;
 
-      try
-      {
-          var leakTest = new LeakTest()
-          {
-              TimeStamp = fluxRecord.GetTime()?.ToDateTimeUtc().ToLocalTime(),
-              Measurement = fluxRecord.GetValueByKey("_measurement")?.ToString(),
-              MachineId = fluxRecord.GetValueByKey("machine_id")?.ToString(),
-              Status = fluxRecord.GetValueByKey("status")?.ToString(),
-              TestObjectId = fluxRecord.GetValueByKey("test_object_id")?.ToString(),
-              TestObjectType = fluxRecord.GetValueByKey("test_object_type")?.ToString(),
-              SniffingPoint = fluxRecord.GetValueByKey("sniffing_point")?.ToString(),
-              User = fluxRecord.GetValueByKey("user_id")?.ToString(), 
-              Reason = fluxRecord.GetValueByKey("reason")?.ToString()
-          };
-          
+public class LeakTestConverter : IDomainObjectMapper, IMemberNameResolver
+{
+    /// <summary>
+    /// This class is used to map from a LeakTest object to a Point Data representation of that object, or to map
+    /// from a Flux Record to a LeakTest object. 
+    /// </summary>
+    /// <param name="fluxRecord">A representation of a point in an InfluxDb. This representation must contain all the
+    /// required information to populate a LeakTest object</param>
+    /// <typeparam name="T">An object of type LeakTest</typeparam>
+    /// <returns>Either a LeakTest object when mapping from a Flux Record, or a Point Data representation of a LeakTest
+    /// object when mapping from a LeakTest object.</returns>
+    public T ConvertToEntity<T>(FluxRecord fluxRecord)
+    {
+        return (T)ConvertToEntity(fluxRecord, typeof(T));
+    }
 
-          return Convert.ChangeType(leakTest, type);
-      }
-      catch (Exception e)
-      {
-          throw new Exception(
-              $"There was an error converting the record with timestamp: {fluxRecord.GetTime()} - {e.Message}");
-      }
-  }
+    public object ConvertToEntity(FluxRecord fluxRecord, Type type)
+    {
+        if (fluxRecord == null)
+        {
+            throw new ArgumentNullException(nameof(fluxRecord));
+        }
+
+        if (type != typeof(LeakTest))
+        {
+            throw new NotSupportedException($"This converter doesn't support: {type}");
+        }
+        
+        try
+        {
+            var leakTest = new LeakTest();
+
+            leakTest.TimeStamp = fluxRecord.GetTime().GetValueOrDefault().ToDateTimeUtc().ToLocalTime();
+            leakTest.Measurement = fluxRecord.GetValueByKey("_measurement")?.ToString();
+            leakTest.MachineId = Guid.Parse(fluxRecord.GetValueByKey("MachineId")?.ToString());
+            leakTest.Status = fluxRecord.GetValueByKey("Status")?.ToString();
+            leakTest.TestObjectId = Guid.Parse(fluxRecord.GetValueByKey("TestObjectId")?.ToString());
+            leakTest.TestObjectType = fluxRecord.GetValueByKey("TestObjectType")?.ToString();
+            leakTest.LeakTestId = Guid.Parse(fluxRecord.GetValueByKey("LeakTestId").ToString());
+            leakTest.SniffingPoint = fluxRecord.GetValueByKey("SniffingPoint")?.ToString();
+            leakTest.User = fluxRecord.GetValueByKey("User")?.ToString();
+            leakTest.Reason = fluxRecord.GetValueByKey("Reason")?.ToString() ?? null;
+            
+            
+
+            return Convert.ChangeType(leakTest, type);
+        }
+        catch (Exception e)
+        {
+            // throw new Exception(
+            //     $"There was an error converting the record with timestamp: {fluxRecord.GetTime()} - {e.Message}");
+            throw new Exception(e.Message);
+        }
+    }
+
+
+    public PointData ConvertToPointData<T>(T entity, WritePrecision precision)
+    {
+            if (!(entity is LeakTest ce))
+            {
+                throw new NotSupportedException($"This converter doesn't support: {typeof(T)}");
+            }
+            try
+            {
+                var point = PointData
+                    .Measurement(ce.Measurement)
+                    .Tag("TestObjectId", ce.TestObjectId.ToString())
+                    .Tag("Status", ce.Status)
+                    .Tag("MachineId", ce.MachineId.ToString())
+                    .Tag("TestObjectType", ce.TestObjectType)
+                    .Tag("User", ce.User.ToString())
+                    .Field("SniffingPoint", ce.SniffingPoint)
+                    .Field("Reason", ce.Reason ?? null)
+                    .Field("LeakTestId", ce.LeakTestId.ToString())
+                    .Timestamp(ce.TimeStamp, precision);
+
+                return point;
+            }
+            catch (Exception e)
+            {
+                // Log here if necessary
+                throw new Exception(e.Message);
+            }
+    }
+    
+
+    public MemberType ResolveMemberType(MemberInfo memberInfo)
+    {
+        return memberInfo.Name switch
+        {
+            "TimeStamp" => MemberType.Timestamp,
+            "TestObjectId" => MemberType.Tag,
+            "Status" => MemberType.Tag,
+            "MachineId" => MemberType.Tag,
+            "TestObjectType" => MemberType.Tag,
+            "User" => MemberType.Tag,
+            _ => MemberType.Field
+        };
+    }
+
+    public string GetColumnName(MemberInfo memberInfo)
+    {
+        return memberInfo.Name.ToLower();
+    }
+
+    public string GetNamedFieldName(MemberInfo memberInfo, object value)
+    {
+        return memberInfo.Name.ToLower();
+    }
+    
+    public List<PointData> ConvertLeakTestsToPoints(IEnumerable<LeakTest> entities, WritePrecision precision)
+    {
+        return entities.Select(entity => ConvertToPointData(entity, precision)).ToList();
+    }
+}
 ```
 Klassen er større men det giver en god ide om hvordan den overordnet opererer.
 
@@ -268,8 +358,4 @@ findes der testværktøjer som f.eks. "TestServer", men jeg har ikke sat mig ind
 Mine endpoints og repo metoder er indtil videre kun testest manuelt via Swagger.
 
 ### Dokumentation
-Jeg vil dokumentere med postman. Det er under udarbejdelse lige i øjeblikket.
-
-
-### Appsettings.json / retry måske 
-Her kommer der lige et afsnit om noget med appsettings og hvordan vi vælger hvilken config der skal køres. 
+Jeg vil dokumentere med postman eller swagger. Det er under udarbejdelse lige i øjeblikket.
