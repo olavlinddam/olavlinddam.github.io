@@ -14,5 +14,5 @@ Hermed den fjerde læringsplan. Der bliver endnu en gang trukket punkter med ove
 
 Mit kanban board ved begyndelsen af denne sprint:
 
-  <img src="/assets/images/kanban-120923.png" alt="Image should have been here.">
+  <img src="/assets/images/kanban-2609.png" alt="Image should have been here.">
 
