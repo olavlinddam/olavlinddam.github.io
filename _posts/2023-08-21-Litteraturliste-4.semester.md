@@ -29,3 +29,6 @@ Her følger en litteraturliste over de ressourcer jeg anvender i projektet.
 ### Authentication
 * [Picking the right Auth](https://www.youtube.com/watch?v=4BItolSqIyU)
 
+### Web API
+* [Background Tasks](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-7.0&tabs=visual-studio)
+
