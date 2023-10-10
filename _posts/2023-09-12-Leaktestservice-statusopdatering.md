@@ -351,7 +351,7 @@ serveren.
 ### Test
 Indtil videre har jeg skrevet Unit Tests for converteren, valideringslogikken og mappingen til og fra JSON.
 
-<img src="/assets/images/LeakTestUnitTests-140923.png">
+<img src="/assets/images/LeakTestUnitTests-140923.png" alt="image should have been here">
 
 Min plan er at mock mit repo og teste metoderne på den måde, ved at bruge NSubstitute. I forhold til controlleren og endpoints
 findes der testværktøjer som f.eks. "TestServer", men jeg har ikke sat mig ind i det endnu. 

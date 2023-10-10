@@ -7,7 +7,7 @@ tags: [nolek,systemdokumentation,systemdesign,infrastruktur]
 
 Efter at have gjort nogle flere tanker omkring arkitekturen er jeg kommet frem til denne model:
 
-<img src="/assets/images/overordnet-systemdiagram-v2.png">
+<img src="/assets/images/overordnet-systemdiagram-v2.png" alt="image should have been here">
 
 Hvor klienterne kommunikerer med et API gateway via en firewall/proxy. Gateway er ansvarlig for at fordele beskeder ud til 
 de rigtige queues, som håndteres af en RabbitMQ instans. Hver service er tilknyttet to eller flere queues, til at håndtere
