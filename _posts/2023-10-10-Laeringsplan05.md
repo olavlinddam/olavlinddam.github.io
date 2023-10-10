@@ -1,6 +1,6 @@
 ---
 title: Læringsplan 09.10.23 - 23.10.23
-date: 10.10.2023 11:00
+date: 10.10.2023 10:00
 categories: [Nolek, Læringsplan- og mål]
 tags: [nolek,læringsplan,projektstyring,delmål]
 ---
