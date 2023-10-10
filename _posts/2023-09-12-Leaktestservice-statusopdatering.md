@@ -101,7 +101,7 @@ så vi er sikre på at de rent faktisk er valide GUIDs.
 ### LeakTestController
 I controlleren findes de endpoints som resten af systemet kan forbinde til.
 
-<img src="/assets/images/LeakTestController-180923.png">
+<img src="/assets/images/LeakTestController-180923.png" alt="image should have been here">
 
 
 De er alle opbygget med try-catch statements, hvor modellen valideres, enten når den kommer ind i controlleren via kaldet 
