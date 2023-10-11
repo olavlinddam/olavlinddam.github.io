@@ -1,5 +1,5 @@
 ---
-title: LeakTest Service Refaktorering
+title: Producer/Consumer arkitekturen
 date: 11.10.2023 11:00
 categories:
   - Nolek
