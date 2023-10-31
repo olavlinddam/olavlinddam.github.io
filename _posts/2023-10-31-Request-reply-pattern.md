@@ -17,7 +17,7 @@ Det har været en stor hovedpine at finde ud af, hvordan et al logik og dataindh
 ### Request-Reply pattern (RPC)
 I RPC sendes der fra en producer, et request til en kø som en consumer lytter på. I samme omgang opretter producer en eksklusiv svar-kø, som consumer sender sin response på. Producer lytter i samme omgang på en svar-kø, og modtager respons der, som så kan sendes tilbage til det oprindelige HTTP request. Det kan visualiseres således:
 
-<img src="../assets/images/request-reply-pattern.png" alt="image should have been here.">
+<img src="/assets/images/request-reply-pattern.png" alt="image should have been here.">
 
 I vores system kunne det være:
 1. Client = Single Page App
