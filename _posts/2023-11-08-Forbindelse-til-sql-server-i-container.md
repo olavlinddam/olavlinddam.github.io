@@ -4,10 +4,6 @@ date: 08.11.2023 12:00
 categories: [Nolek, Docker]
 tags: [nolek,testobjectservice,docker,sql,compose,databaser]
 ---
-
-
-Problemer med docker compose, specifikt hvordan får jeg forbundet til min sql server? Jeg har brug for at køre dotnet ef update database for at apply mine migrations til databasen når docker compose bliver kørt.
-
 Nu er endnu en service - TestObject Service - kommet på plads. Den skulle i den forbindelse integreres i min ´compose.yaml´ fil, som anvendes til at opsætte alle containers i samme netværk. Det gav nogle udfordringer, i forhold til at få forbundet til SQL serveren og opdatering af databasen på den server.
 
 ### Forbindelsen til SQL serveren
