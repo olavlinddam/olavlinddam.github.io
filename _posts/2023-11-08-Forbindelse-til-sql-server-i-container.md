@@ -1,6 +1,6 @@
 ---
 title: Forbindelse til SQL server i container
-date: 08.11.2023 12:00
+date: 08q.11.2023 12:00
 categories: [Nolek, Docker]
 tags: [nolek,testobjectservice,docker,sql,compose,databaser]
 ---
