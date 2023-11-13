@@ -11,7 +11,7 @@ at implementere en data aggregerings service i mit gateway.
 
 Diagrammet herunder visualiserer et HTTP request hvor der hentes et test objekt og tilhørende test resultater:
 
-<img src="../assets/images/data-aggregation1.png" alt="image should have been here">
+<img src="/assets/images/data-aggregation1.png" alt="image should have been here">
 
 I ovenstående situation modtager gateway altså data fra to services. For at undgå, at gateway skal have en masse
 kompleks logik til at håndtere data i forskellige formater, har jeg implementeret en ApiResponse klasse, som udgør
