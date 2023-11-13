@@ -1,6 +1,6 @@
 ---
 title: Overordnet systemdiagram v3
-date: 10.11.2023 11:00
+date: 10.11.2023 11w:00
 categories: [Nolek, Systemdokumentation]
 tags: [nolek,systemdokumentation,systemdesign,infrastruktur]
 ---
