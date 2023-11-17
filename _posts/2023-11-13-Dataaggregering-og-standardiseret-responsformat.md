@@ -1,7 +1,7 @@
 ---
 title: Dataaggregering og standardiserede responseformater
 date: 13.11.2023 08:00
-categories: [Nolek, microservices]
+categories: [Nolek, Microservices]
 tags: [nolek,microservices,gateway,api,"data aggregation"]
 ---
 
