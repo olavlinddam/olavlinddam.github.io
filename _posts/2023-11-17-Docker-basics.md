@@ -7,7 +7,7 @@ tags: [nolek,microservices,gateway,api,"data aggregation"]
 
 Først vil jeg lige give et overblik over flowet fra Dockerfile til kørende container:
 
-<img src="../assets/images/docker-basics-diagram.png" alt="image should have been here">
+<img src="/assets/images/docker-basics-diagram.png" alt="image should have been here">
 
 Hvor det ses, at man starter med en Dockerfile som indeholder nogle instruktioner der er stablet i lag, hvilket bliver til det Image som i 
 sidste ende implementeres i containers. For at køre en container har man brug for en infrastruktur (fysik hardware),
