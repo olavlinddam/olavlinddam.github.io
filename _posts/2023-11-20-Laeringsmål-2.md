@@ -1,5 +1,5 @@
 ---
-title: Læringsmål
+title: Læringsmål - WORK IN PROGRESS
 date: 20.11.2023 10:11
 categories: [Nolek, Læringsplan- og mål]
 tags: [nolek,læringsmål,formalia]
@@ -36,3 +36,28 @@ vil kunne forbedres ved at anvende microservices arkitektur.
 system.
 4. Jeg kan analysere et eksisterende microservicessystem og opnå dyb forståelse af systemets nuværende strukturer,
    med henblik på integrering af nye funktioner eller services.
+
+
+# Docker
+### Viden
+1. Jeg kan forklare hvornår og hvorfor et system kan drage fordel af containerization. 
+2. Jeg kan beskrive containerizations rolle i microservices, herunder hvordan containerization kan understøtte en 
+microservices arkitektur. 
+3. Jeg kan redegøre for kerneprincipperne i Docker Swarm og sammenhængene mellem dem.
+4. Jeg kender de mest anvendelige Docker kommandoer.
+
+### Færdigheder
+1. Jeg kan optsætte, konfigurere og deploy applikationer ved anvendelse af Docker.
+2. Jeg kan designe og implementere Dockerfiles til forskellige applikationer.
+3. Jeg anvende Docker Swarm til opsætning af et skalerbart distribueret netværk, hvor services effektivt kan kommunikere
+på tværs af værtsmaskiner, herunder fysiske og virtuelle maskiner.
+4. Jeg diagnosticere, udlede løse almindelige problemer i en containerized infrastruktur.
+5. Jeg kan anvende Docker Swarm til at skalere, opdatere og overovåge containerized applikationer. 
+
+### Kompetencer
+1. Jeg kan kritisk vurdere om en applikation ville drage fordel af containerization.
+2. Jeg kan designe og implementere en containerized infrastruktur ved at kombinere viden om conatinerization og 
+orkistrering af containere.
+3. Jeg kan overveje og integrere avancerede Docker-funktioner og -værktøjer for at designe robuste, 
+vedligeholdelsesvenlige og skalerbare containerized applikationer.
+4. Jeg kan kritisk vurdere en eksisterende containerized løsning, med fokus på optimering af ressourceudnyttelse...
