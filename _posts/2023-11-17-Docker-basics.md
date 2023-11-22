@@ -2,7 +2,7 @@
 title: Docker basics
 date: 17.11.2023 08:00
 categories: [Nolek, docker]
-tags: [nolek,microservices,gateway,api,"data aggregation"]
+tags: [nolek,docker]
 ---
 
 Først vil jeg lige give et overblik over flowet fra Dockerfile til kørende container:
