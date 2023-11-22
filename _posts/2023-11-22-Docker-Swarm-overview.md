@@ -1,5 +1,5 @@
 ---
-title: Docker Swarm
+title: Docker Swarm Overview
 date: 22.11.2023 08:00
 categories: [Nolek, docker]
 tags: [nolek,docker,swarm]
