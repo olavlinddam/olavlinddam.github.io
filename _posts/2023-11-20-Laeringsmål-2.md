@@ -1,5 +1,5 @@
 ---
-title: Læringsmål - WORK IN PROGRESS
+title: Læringsmål
 date: 20.11.2023 10:11
 categories: [Nolek, Læringsplan- og mål]
 tags: [nolek,læringsmål,formalia]
