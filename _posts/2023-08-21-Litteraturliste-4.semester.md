@@ -12,6 +12,8 @@ Her følger en litteraturliste over de ressourcer jeg anvender i projektet.
 * [Asp.Net Microservices 2](https://www.c-sharpcorner.com/article/microservice-using-asp-net-core/)
 * [RabbitMQ with Docker](https://www.youtube.com/watch?v=-0g-1ckQgBo)
 * [Intro til RabbitMQ](https://www.youtube.com/watch?v=bfVddTJNiAw&pp=ygUXdGltIGNvcmV5IG1pY3Jvc2VydmljZXM%3D)
+* [RabbitMQ Docs](https://www.rabbitmq.com/documentation.html)
+* [RabbitMQ .NET](https://www.rabbitmq.com/dotnet-api-guide.html)
 * [Azure Service Bus](https://www.youtube.com/watch?v=v52yC9kq0Yg)
 * [Generelt om microservices](https://microservices.io/patterns/microservices.html)
 
